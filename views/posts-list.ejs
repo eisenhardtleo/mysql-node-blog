@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('includes/head', { title: 'All Posts' }) %>
+  <link rel="stylesheet" href="/styles/posts.css">
+</head>
+
+<body>
+  <div id="page-container">
+    <div id="content-wrap">
+    <%- include('includes/header') %>
+    <main id="all-posts">
+      <h1>TUTTI I POST</h1>
+      <% if (!posts || posts.length === 0) { %>
+          <p style="margin-bottom: 5rem;"><em>Nessun post trovato!</em></p>
+          <a class="btn" href="/new-post">Crea un nuovo post</a>
+      <% } else { %>
+          <ol>
+            <% posts.forEach(post => { %>
+              <%- include("includes/post-item", { post : post }) %>
+            <%  }); %>
+          </ol>
+      <% } %>
+    </main>
+  </div> 
+  <%- include('includes/footer') %>
+  </body>
+  </div>
+
+</html>

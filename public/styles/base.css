@@ -1,0 +1,152 @@
+html {
+  font-family: 'Inter Tight', sans-serif;
+  color: rgb(46, 45, 48);
+  font-weight: 500;
+}
+
+body {
+  margin: 0;
+}
+
+
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;            
+  text-align: center;
+}
+
+
+
+main {
+  width: 80%;
+  margin: 3rem auto;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(35, 10, 146);
+}
+
+a:hover,
+a:active {
+  color: rgb(4, 110, 196);
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.btn {
+  cursor: pointer;
+  font: inherit;
+  background-color: rgb(34, 12, 133);
+  border: 1px solid rgb(35, 10, 146);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 4px;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: rgb(4, 110, 196);
+  border-color: rgb(4, 110, 196);
+  color: white;
+}
+
+.btn.btn-alt {
+  background-color: transparent;
+  border-color: transparent;
+  color: rgb(35, 10, 146);
+}
+
+.btn.btn-alt:hover,
+.btn.btn-alt:active {
+  color: rgb(4, 110, 196);
+}
+
+/* Site-wide content / elements */
+
+#main-header {
+  padding: 2rem 10%;
+  background-color: rgb(35, 10, 146);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#main-header li {
+  margin: 0 1rem;
+}
+
+#main-header button {
+  font: inherit;
+  font-size: 1.25rem;
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+  color: white;
+  padding: 0;
+}
+
+#main-header form {
+  margin: 0;
+  padding: 0;
+}
+
+#main-header a:hover,
+#main-header a:active,
+#main-header button:hover,
+#main-header button:active {
+  color: rgb(44, 151, 170);
+}
+
+#logo a {
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgba(88, 195, 238, 0.808);
+  text-shadow: 1px 1px #000;
+  font-family: 'Inter Tight', sans-serif;
+  border: 1px solid rgba(88, 195, 238, 0.808);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+
+#main-header ul {
+  display: flex;
+}
+
+#main-header li {
+  margin-left: 2rem;
+}
+
+#main-header nav a {
+  color: white;
+  font-size: 1.25rem;
+}
+
+#main-header nav a:hover,
+#main-header nav a:active {
+  color: rgb(44, 151, 170);
+}
+
+#admin, #standard_user {
+  /* display: flex; */
+  color: #fff;
+  margin-left: 50%;
+}

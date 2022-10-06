@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('includes/head', { title: 'Add new post' }) %>
+  <link rel="stylesheet" href="/styles/forms.css">
+</head>
+
+<body>
+  <%- include('includes/header') %>
+  <main>
+    <h1>CREA UN NUOVO POST</h1>
+    <form action="/posts" method="POST">
+      <div class="form-control">
+        <label for="title">Titolo</label>
+        <input type="text" id="title" name="title" required>
+      </div>
+      <div class="form-control">
+        <label for="summary">Oggetto</label>
+        <input type="text" id="summary" name="summary" required maxlength="255">
+      </div>
+      <div class="form-control">
+        <label for="content">Contenuto</label>
+        <textarea id="content" name="content" required rows="10"></textarea>
+      </div>
+      <div class="form-control">
+        <label for="author">Seleziona autore</label>
+        <select id="author" name="author">
+          <% authors.forEach(author => { %>
+            <% if (author.email === locals.email) { %>
+            <option selected value="<%= author.id %>"><%= author.name %></option>
+           <% }}) %>
+        </select>
+      </div>
+      <button class="btn">Aggiungi Post</button>
+    </form>
+  </main>
+</body>
+
+</html>

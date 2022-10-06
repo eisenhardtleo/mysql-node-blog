@@ -1,0 +1,42 @@
+<header id="main-header">
+  <div id="logo">
+    <a href="/">MySQLdemoBlog</a>
+  </div>
+  <nav style="position:absolute; margin-left : 15%">
+    <ul>
+      <% if (locals.isAdmin === 1) { %>
+        <li id="admin" style="font-size: 0.8rem;"><em>logged in as ADMIN (<%= locals.name %>)</em></li>
+      <% } else if (locals.isAdmin === 0) { %>
+        <li id="standard_user" style="font-size: 0.8rem;"><em>logged in as STANDARD (<%= locals.name %>)</em></li>
+      <% } %>
+    </ul>
+  </nav>
+  <nav>
+    <ul>
+      <li>
+        <a href="/posts">Tutti i post</a>
+      </li>
+      <% if (locals.isAuthenticated === true) { %>
+      <li>
+        <a href="/new-post">Crea post</a>
+      </li>
+      <% } %>
+      <% if (!locals.isAuthenticated === true) { %>
+      <li>
+        <a href="/signup">Registrati</a>
+      </li>
+      <li>
+        <a href="/login">Login</a>
+      </li>
+      <% } %>
+      <% if (locals.isAuthenticated === true) { %>
+        <li>
+          <form action="/logout" method="post">
+            <button>Logout</button>
+          </form>
+        </li>
+      <% } %>
+      
+    </ul>
+  </nav>
+</header>

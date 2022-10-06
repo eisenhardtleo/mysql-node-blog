@@ -1,0 +1,42 @@
+form {
+  max-width: 25rem;
+  margin: 2rem auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+input, textarea, select {
+  font: inherit;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid rgb(204, 204, 204);
+}
+
+input:focus,
+textarea:focus {
+  background-color: rgba(135, 160, 243, 0.733);
+}
+
+input, textarea {
+  width: 100%;
+}
+
+.form-control {
+  margin: 0.5rem 0;
+}
+
+.input-error {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  background-color: rgb(251, 217, 217);
+  color: rgb(144, 33, 33);
+  border-radius: 4px;
+}

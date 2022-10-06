@@ -1,0 +1,44 @@
+<%- include('includes/head.ejs', { title : "Sign up" }) %>
+  <link rel="stylesheet" href="/styles/forms.css">
+  <link rel="stylesheet" href="/styles/auth.css">
+</head>
+
+<body>
+  <%- include('includes/header.ejs') %>
+  <main id="signup">
+    <h1>Registrati</h1>
+     <form action="/signup" method="POST">
+      <% if (sessionInputData.hasError) { %>
+        <p class="input-error"><%= sessionInputData.message %></p>
+      <% } %>
+      <div class="form-control">
+        <label for="name">Fullname</label>
+        <input type="text" id="name" value="<%= sessionInputData.name %>" name="name">
+        <label for="email">Email</label>
+        <% if (sessionInputData.hasError) { %>
+          <input type="text" id="email" value="<%= sessionInputData.email %>" name="email" style="border: 3px solid red;">
+        <% } else { %>  
+          <input type="text" id="email" value="<%= sessionInputData.email %>" name="email">
+        <% } %>
+      </div>
+      <div class="form-control">
+        <label for="confirm-email">Confirm Email</label>
+        <% if (sessionInputData.hasError) { %>
+          <input type="text" id="confirm-email" value="<%= sessionInputData.confirmedEmail %>" name="confirm-email" style="border: 3px solid red;">
+        <% } else { %>
+          <input type="text" id="confirm-email" value="<%= sessionInputData.confirmedEmail %>" name="confirm-email">
+        <% } %>
+        </div>
+      <div class="form-control">
+        <label for="password">Password</label>
+        <input type="password" id="password" value="" name="password">
+      </div>
+      <button class="btn">Create user</button>
+    </form>
+    <div id="auth-alternative">
+      <a class="btn btn-alt" href="/login">Login instead</a>
+    </div>
+  </main>
+</body>
+
+</html>
