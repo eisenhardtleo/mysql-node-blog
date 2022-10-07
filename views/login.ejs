@@ -22,16 +22,22 @@
       <div class="form-control">
           <label for="password">Password</label>
         <% if (sessionInputData.hasError) { %>
-          <input type="password" id="password" value="<%= sessionInputData.password %>" name="password" style="border: 3px solid red;" required>
+          <input style="margin-bottom: 1.5rem;" type="password" id="password" value="<%= sessionInputData.password %>" name="password" style="border: 3px solid red;" required>
         <% } else { %>  
-          <input type="password" id="password" value="<%= sessionInputData.password %>" name="password" required>
+          <input style="margin-bottom: 1.5rem;" type="password" id="password" value="<%= sessionInputData.password %>" name="password" required>
         <% } %>
       </div>
-      <button class="btn">Log in</button>
+      <% if (locals.isAuthenticated) { %>
+        <a href="/" class="btn">Go back and log out first</a>
+      <% } else { %> 
+        <button class="btn">Log in</button>
+      <% } %>
     </form>
-    <div id="auth-alternative">
-      <a class="btn btn-alt" href="/signup">Create a new user</a>
-    </div>
+    <% if (!locals.isAuthenticated) { %>
+      <div id="auth-alternative">
+        <a class="btn btn-alt" href="/signup">Create a new user</a>
+      </div>
+    <% } %>
   </main>
 </body>
 

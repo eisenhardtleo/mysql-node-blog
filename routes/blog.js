@@ -202,7 +202,7 @@ router.post("/posts", async (req, res) => {
 })
 
 router.get("/postsDelete", async (req, res) => {
-  if (!res.locals.isAuthenticated && !res.locals.isAdmin) {
+  if (!res.locals.isAuthenticated || !res.locals.isAdmin) {
     return res.status(403).render("403");
   }
   await db.query("TRUNCATE TABLE blogdb.posts;");
@@ -236,7 +236,7 @@ router.post("/posts/:id/delete", async (req, res) => {
 router.post("/logout", (req, res)=>{
   req.session.user = null;
   req.session.isAuthenticated = false;
-  res.redirect("/");
+  res.redirect("/login");
 })
 
 router.get("/401", async (req, res) => {
