@@ -14,6 +14,7 @@ const sessionStore = new MySQLStore({
 const app = express();
 
 const blogRoutes = require('./routes/blog');
+const authRoutes = require('./routes/auth');
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -50,6 +51,7 @@ app.use(async (req, res, next)=>{
 })
 
 app.use(blogRoutes);
+app.use(authRoutes);
 
 app.use(function (error, req, res, next) {
   console.log(error);
