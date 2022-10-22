@@ -15,6 +15,7 @@ const app = express();
 
 const blogRoutes = require('./routes/blog');
 const authRoutes = require('./routes/auth');
+const auth = require("./middlewares/auth-middleware");
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -32,23 +33,7 @@ app.use(session({
   }
 }))
 
-app.use(async (req, res, next)=>{
-  const user = req.session.user;
-  const isAuthenticated = req.session.isAuthenticated;
-  if (!user || !isAuthenticated) {
-    return next();
-  }
-  const query = "SELECT id, name, email, isAdmin FROM blogdb.users WHERE blogdb.users.email = ?";
-  const [data] = await db.query(query, [req.session.user.email]);
-  const isAdmin = data[0]["isAdmin"];
-  const email = data[0]["email"];
-  const name = data[0]["name"];
-  res.locals.isAuthenticated = isAuthenticated;
-  res.locals.name = name;
-  res.locals.email = email;
-  res.locals.isAdmin = isAdmin;
-  next();
-})
+app.use(auth)
 
 app.use(blogRoutes);
 app.use(authRoutes);
