@@ -20,7 +20,7 @@ body {
 }
 
 #footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   height: 2.5rem;            
@@ -150,3 +150,35 @@ ol {
   color: #fff;
   margin-left: 50%;
 }
+
+  @media screen and (max-width: 900px) {
+
+  header {
+    position: relative;
+    width: 80%;
+  }
+
+  main {
+    width: 85%;
+    margin: 4rem auto;
+  }
+
+  #main-header ul, #main-header li, #main-header nav a {
+    position: relative;
+    right: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  #main-header ul {
+    position: relative;
+    text-align: end;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+  }
+
+  #admin, #standard_user {
+    display: none;
+  }
+ }
